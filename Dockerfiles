@@ -1,7 +1,2 @@
-FROM ubuntu
-RUN apt-get update
-RUN apt-get install –y apache2
-RUN apt-get install –y apache2-utils
-RUN apt-get clean
-EXPOSE 88 CMD [“apache2ctl”, “-D”, “FOREGROUND”]
-COPY /home/ec2-user/devops /var/www/html/devops
+FROM httpd:2.4
+COPY ./devops /usr/local/apache2/htdocs/
